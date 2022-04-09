@@ -5,6 +5,12 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "com.no.todolist"
+    },
+    "ios": {
+      "bundleIdentifier": "com.no.todolist"
+    }
   }
 }
