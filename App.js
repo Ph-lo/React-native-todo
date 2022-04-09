@@ -55,6 +55,7 @@ export default function App() {
       // console.log(tasks);
       setTaskItems(JSON.parse(tasks));
       // tasks.then((res) => {
+        
       //   if (res !== null) {
       //     const parsedTasks = JSON.parse(res);
       //     setTaskItems(parsedTasks);

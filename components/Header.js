@@ -44,7 +44,32 @@ function Header(props) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    padding: 20,
+    paddingBottom: 10,
+    // marginTop: 50,
+  },
+  dateBlock: {
+    
+  },
+  dateDiv: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  date: {
+    fontSize: 65,
+  },
+  monthYear: {
+    marginTop: 15,
+    marginLeft: 5,
+  },
+  month: {
+    fontSize: 22,
+  },
+  year: {
+    fontSize: 18
+  },
+  task: {
+    marginLeft: 2,
   },
   sectionTitle: {
     fontSize: 24,
