@@ -20,7 +20,7 @@ function ModalForm({ setTasks, setModalVisibility, handleNewTasks }) {
     >
       <View style={styles.modal}>
         <TouchableOpacity onPress={() => setModalVisibility(false)}>
-          <Text style={styles.close}>x</Text>
+          <Text style={styles.close}>✕</Text>
         </TouchableOpacity>
         <TextInput
           style={styles.input}
@@ -33,7 +33,7 @@ function ModalForm({ setTasks, setModalVisibility, handleNewTasks }) {
         />
         <TouchableOpacity onPress={() => handleNewTasks()}>
           <View style={styles.addWrapper}>
-            <Text style={styles.addText}>+</Text>
+            <Text style={styles.addText}>＋</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -45,13 +45,15 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     height: "100%",
     width: "100%",
-    paddingTop: 20,
-    paddingBottom: 35,
+    paddingTop: 10,
+    paddingBottom: 15,
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     shadowRadius: 15,
+    // shadowOffset: {width: -52, height: -54},
+    // shadowOpacity: 1,
     shadowColor: "black",
-    elevation: 14,
+    elevation: 24,
   },
   close: {
     right: 15,
@@ -69,11 +71,12 @@ const styles = StyleSheet.create({
   },
   input: {
     // backgroundColor: "#e7e5e5",
-    marginTop: 10,
+    marginTop: 5,
     marginLeft: 15,
+    marginBottom: 10,
     paddingVertical: 10,
     paddingHorizontal: 25,
-    backgroundColor: "#e7e5e5",
+    backgroundColor: "#f0f0f0",
     borderRadius: 30,
     borderColor: "#C0C0C0",
     borderWidth: 1,
@@ -92,7 +95,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   addText: {
-    color: "#C0C0C0",
+    color: "#b1d6ea",
     fontSize: 60,
     fontWeight: "normal",
     marginTop: -10

@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingBottom: 10,
     // marginTop: 50,
+    paddingTop: 40,
   },
   dateBlock: {
     

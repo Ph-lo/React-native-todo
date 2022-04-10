@@ -2,18 +2,18 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 
 
-function Task({deleteTask, updateTask, uuid, text}) {
+function Task({deleteTask, updateTask, uuid, text, done}) {
+  const checkMarkSymbol = '✓';
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>
-        <View style={styles.checkbox}></View>
+        <TouchableOpacity style={styles.checkbox} onPress={() => updateTask(uuid)}><Text style={styles.checkMark}>{(done) ? checkMarkSymbol : ""}</Text></TouchableOpacity>
         {/* <Text style={styles.itemText}>{uuid}</Text> */}
-        <Text style={styles.itemText}>{text}</Text>
+        <Text style={(done === false) ? styles.itemText : styles.itemTextCrosses}>{text}</Text>
       </View>
       <TouchableOpacity style={styles.btn} onPress={() => deleteTask(uuid)}>
 
       </TouchableOpacity>
-      {/* <View style={styles.btn}></View> */}
     </View>
   );
 }
@@ -41,8 +41,17 @@ const styles = StyleSheet.create({
     opacity: 0.4,
     marginRight: 15,
   },
+  checkMark: {
+    marginTop: -15,
+    marginLeft: 5,
+    fontSize: 35,
+  },
   itemText: {
     maxWidth: "80%",
+  },
+  itemTextCrosses: {
+    maxWidth: "80%",
+    textDecorationLine: "line-through",
   },
   btn: {
     width: 12,

@@ -56,7 +56,7 @@ export default function App() {
     setTasks("");
     let itemsCopy = [...taskItems];
     itemsCopy.push({ text: task, uuid: id });
-    setTaskItems([...taskItems, { text: task, uuid: id }]);
+    setTaskItems([...taskItems, { text: task, uuid: id, done: false }]);
     saveTask(JSON.stringify(itemsCopy));
   };
 
@@ -68,10 +68,10 @@ export default function App() {
     saveTask(JSON.stringify(itemsCopy));
   };
 
-  const updateTask = (uuid, text) => {
+  const updateTask = (uuid) => {
     const index = taskItems.findIndex((item) => item.uuid === uuid);
     const itemsCopy = [...taskItems];
-    itemsCopy[index].text = text;
+    itemsCopy[index].done = (itemsCopy[index].done) ? false : true;
     setTaskItems(itemsCopy);
   };
 
@@ -94,6 +94,7 @@ export default function App() {
                     updateTask={updateTask}
                     uuid={item.uuid}
                     text={item.text}
+                    done={item.done}
                   />
                 );
               })}
@@ -117,7 +118,7 @@ export default function App() {
           onPress={() => setModalVisibility(true)}
         >
           <View style={styles.addWrapper}>
-            <Text style={styles.addText}>+</Text>
+            <Text style={styles.addText}>＋</Text>
           </View>
         </TouchableOpacity>
         {/* <View style={styles.btnWrapper}>
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   addText: {
-    color: "#82caee",
+    color: "#b1d6ea",
     fontSize: 60,
     fontWeight: "normal",
     marginTop: -10,
