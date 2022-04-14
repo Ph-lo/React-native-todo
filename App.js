@@ -38,7 +38,11 @@ export default function App() {
   const getTasks = async () => {
     try {
       const tasks = await AsyncStorage.getItem(STORAGE_KEY);
-      setTaskItems(JSON.parse(tasks));
+      if (tasks == null) {
+        setTaskItems([]);
+      } else {
+        setTaskItems(JSON.parse(tasks));
+      }
     } catch (e) {
       console.log(e);
       setTaskItems([]);
