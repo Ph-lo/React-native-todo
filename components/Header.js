@@ -1,5 +1,5 @@
-import { View, StyleSheet, Text } from "react-native";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { View, StyleSheet, Text, Image } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function Header(props) {
   const months = [
@@ -35,23 +35,36 @@ function Header(props) {
           </Text>
         </Text>
       </View>
-      
+
+      <Image
+        source={require("../assets/header.gif")}
+        style={styles.imageHeader}
+      />
       {/* <img src={logo} alt="logo to-do" className="banner-logo-todo" /> */}
-      
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    // flex: 1,
+    flexDirection: 'row',
     padding: 20,
     paddingBottom: 10,
     // marginTop: 50,
     paddingTop: 40,
   },
-  dateBlock: {
-    
+  imageHeader: {
+    flex: 1,
+    width: 200,
+    height: 150,
+    // width: 200,
+    marginTop: -20,
+    marginBottom: -15,
+    resizeMode: "contain",
+    // marginLeft: -50
   },
+  dateBlock: {},
   dateDiv: {
     display: "flex",
     flexDirection: "row",
@@ -67,7 +80,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
   },
   year: {
-    fontSize: 18
+    fontSize: 18,
   },
   task: {
     marginLeft: 2,

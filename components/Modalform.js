@@ -28,7 +28,7 @@ function ModalForm({ setTasks, setModalVisibility, handleNewTasks }) {
           // value={task}
           multiline={true}
           numberOfLines={3}
-          // autoFocus={true}
+          
           onChangeText={(text) => setTasks(text)}
         />
         <TouchableOpacity onPress={() => handleNewTasks()}>

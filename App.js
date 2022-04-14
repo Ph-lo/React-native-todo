@@ -8,11 +8,7 @@ import {
   Modal,
   Keyboard,
   ScrollView,
-  KeyboardAvoidingView,
-  Platform,
-  TextInput,
   TouchableOpacity,
-  Button,
 } from "react-native";
 import Task from "./components/Task";
 import Header from "./components/Header";
@@ -49,15 +45,19 @@ export default function App() {
     }
   };
 
-  const handleNewTasks = () => {
-    Keyboard.dismiss();
-    setModalVisibility(false);
-    const id = uuid.default.v4();
-    setTasks("");
-    let itemsCopy = [...taskItems];
-    itemsCopy.push({ text: task, uuid: id });
-    setTaskItems([...taskItems, { text: task, uuid: id, done: false }]);
-    saveTask(JSON.stringify(itemsCopy));
+  const handleNewTasks = (e) => {
+    if (task !== "") {
+      Keyboard.dismiss();
+      setModalVisibility(false);
+      const id = uuid.default.v4();
+      setTasks("");
+      let itemsCopy = [...taskItems];
+      itemsCopy.push({ text: task, uuid: id });
+      setTaskItems([...taskItems, { text: task, uuid: id, done: false }]);
+      saveTask(JSON.stringify(itemsCopy));
+    } else {
+      alert('Enter a task !');
+    }
   };
 
   const deleteTask = (uuid) => {
@@ -121,9 +121,6 @@ export default function App() {
             <Text style={styles.addText}>＋</Text>
           </View>
         </TouchableOpacity>
-        {/* <View style={styles.btnWrapper}>
-          <Button style={styles.btn} title="+" onPress={() => setModalVisibility(true)}/>
-        </View> */}
         <StatusBar style="auto" />
       </View>
     </>
@@ -133,7 +130,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "rgba(0,0,0,0)",
   },
   header: {
     flex: 1,
@@ -144,7 +140,6 @@ const styles = StyleSheet.create({
     height: 80,
   },
   taskWrapper: {
-    // paddingTop: 50,
     paddingHorizontal: 20,
     marginBottom: 90,
   },
@@ -152,15 +147,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   btnWrapper: {
-    // width: 60,
-    // height: 60,
     position: "absolute",
     bottom: 20,
     right: 20,
     borderRadius: 60,
     justifyContent: "center",
-    // marginLeft: '3%',
-    // backgroundColor: 'red',
   },
   btn: {
     borderRadius: 60,
